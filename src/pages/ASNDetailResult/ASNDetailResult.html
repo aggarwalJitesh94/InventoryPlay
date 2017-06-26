@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color=primary>
+    <ion-title>ASN Detailed Result</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+<!--    <ion-card *ngFor="let asnR of resultASN">
+   		<div *ngIf="asnR.msg_Type=='SUCCESS'" class="success_card"></div>
+   		<div *ngIf="asnR.msg_Type=='ERROR'" class="error_card"></div>
+   		<ion-card-header *ngIf="asnR.msg_Type=='SUCCESS'" class="success_card_text">{{asnR.sub_Tran_Name}}</ion-card-header>
+   		<ion-card-header *ngIf="asnR.msg_Type=='ERROR'" class="error_card_text">{{asnR.sub_Tran_Name}}</ion-card-header>
+   		<ion-card-content class="error_messages">
+   		{{asnR.error_Msg}}
+   		<ion-note class="pos_date" ion-right right ion-end>{{asnR.date_Time}}</ion-note>
+   		</ion-card-content>
+   </ion-card> -->
+
+
+<ion-list no-lines inset>
+  <ion-item-sliding *ngFor="let asnR of resultASN">
+    <ion-item>
+    <div *ngIf="asnR.msg_Type=='SUCCESS'" class="success_card"></div>
+   	<div *ngIf="asnR.msg_Type=='ERROR'" class="error_card"></div>
+      <h2 *ngIf="asnR.msg_Type=='SUCCESS'" class="success_card_text">{{asnR.sub_Tran_Name}}</h2>
+      <h2 *ngIf="asnR.msg_Type=='ERROR'" class="error_card_text">{{asnR.sub_Tran_Name}}</h2>
+      <h3 class="error_messages">{{asnR.error_Msg}}</h3>
+      <ion-note class="pos_date" ion-right right ion-end>{{asnR.date_Time}}</ion-note>
+    </ion-item>
+    <ion-item-options *ngIf="asnR.msg_Type=='ERROR'" side="right">
+      <button ion-button color="white" (click)="showErrorResult(asnR.sub_Tran_Name)">
+        <ion-icon class="primary_text" color="primary" name="ios-more"></ion-icon>
+        Details
+      </button>
+      <button ion-button color="primary">
+        <ion-icon color="white" name="refresh-circle"></ion-icon>
+        Reprocess
+      </button>
+      <button ion-button color="secondary">
+        <ion-icon color="white" name="information-circle"></ion-icon>
+        Incident
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+</ion-content>

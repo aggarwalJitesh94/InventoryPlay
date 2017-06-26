@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar color=primary>
+    <ion-title>Inquiry Result</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+    	<ion-list no-border *ngFor="let asnR of resultASN">
+      <ion-item-divider color="light">SERVICE TAG: {{asnR.serviceTag}}</ion-item-divider>
+      <ion-item *ngIf="asnR.transaction_type!=null">
+      <ion-icon color="primary" name='ios-clipboard-outline' item-start></ion-icon>
+        Transaction Type
+        <ion-note item-end>
+        {{asnR.transaction_type}}
+        </ion-note>
+      </ion-item>
+      <ion-item *ngIf="asnR.transaction_date!=null">
+      <ion-icon color="primary" name='ios-calendar-outline' item-start></ion-icon>
+        Transaction Date
+        <ion-note item-end>
+        {{asnR.transaction_date}}
+        </ion-note>
+      </ion-item>
+      <ion-item *ngIf="asnR.matl_move_from_loc!=null">
+      <ion-icon color="primary" name='ios-arrow-dropleft-outline' item-start></ion-icon>
+        From Location
+        <ion-note item-end>
+        {{asnR.matl_move_from_loc}}
+        </ion-note>
+      </ion-item>
+      <ion-item *ngIf="asnR.matl_move_to_loc!=null">
+      <ion-icon color="primary" name='ios-arrow-dropright-outline' item-start></ion-icon>
+        To Location
+        <ion-note item-end>
+        {{asnR.matl_move_to_loc}}
+        </ion-note>
+      </ion-item >
+      <ion-item *ngIf="asnR.from_ccn!=null">
+      <ion-icon color="primary" name='ios-arrow-dropleft-outline' item-start></ion-icon>
+        From CCN
+        <ion-note item-end>
+        {{asnR.from_ccn}}
+        </ion-note>
+      </ion-item>
+      <ion-item *ngIf="asnR.to_ccn!=null">
+      <ion-icon color="primary" name='ios-arrow-dropright-outline' item-start></ion-icon>
+        To CCN
+        <ion-note item-end>
+        {{asnR.to_ccn}}
+        </ion-note>
+      </ion-item >
+      <ion-item *ngIf="asnR.item!=null">
+      <ion-icon color="primary" name='ios-cube-outline' item-start></ion-icon>
+        ITEM
+        <ion-note item-end>
+        {{asnR.item}}
+        </ion-note>
+      </ion-item>
+      <ion-item *ngIf="asnR.item_Qty!=null">
+        <ion-icon color="primary" name='ios-stats-outline' item-start></ion-icon>
+        ITEM Quantity
+        <ion-note item-end>
+        {{asnR.item_Qty}}
+        </ion-note>
+      </ion-item>
+      <ion-item *ngIf="asnR.tot_Item_Cost!=null">
+        <ion-icon color="primary" name='ios-cash-outline' item-start></ion-icon>
+        ITEM Cost
+        <ion-note item-end>
+        ${{asnR.tot_Item_Cost}}
+        </ion-note>
+      </ion-item>
+      </ion-list>
+</ion-content>

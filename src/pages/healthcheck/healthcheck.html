@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-navbar color="primary" padding-bottom padding-top>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="share"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="refresh()">
+        <ion-icon name="ios-refresh"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      HealthCheck
+    </ion-title>
+  </ion-navbar>
+  <ion-segment  [(ngModel)]="timeValue" padding-top>
+    <ion-segment-button (click)="tryDay()" value="day">
+      Last 24 Hours
+    </ion-segment-button>
+    <ion-segment-button (click)="tryWeek()" value="week">
+      Last 7 Days
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+      <ion-card-header>
+          ASN Health Check
+      </ion-card-header>
+      <ion-card-content>
+        <canvas height="225" #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-slides pager class="ion-slides-hc">
+    <ion-slide>
+      <ion-card>
+            <ion-card-header>MM/Xfer HealthCheck: AM2GP</ion-card-header>
+            <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                      <canvas height="230" #doughnutCanvasAM ></canvas>
+                </ion-col>
+                <ion-col col-6>
+                     <canvas height="230" #doughnutCanvas2AM ></canvas>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+             </ion-card-content>
+            </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+            <ion-card-header>MM/Xfer HealthCheck: BHM2GP</ion-card-header>
+            <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                      <canvas height="230" #doughnutCanvasBM ></canvas>
+                </ion-col>
+                <ion-col col-6>
+                     <canvas height="230" #doughnutCanvas2BM ></canvas>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+             </ion-card-content>
+            </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+            <ion-card-header>MM/Xfer HealthCheck: EM2GP</ion-card-header>
+            <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                      <canvas height="230" #doughnutCanvasEM ></canvas>
+                </ion-col>
+                <ion-col col-6>
+                     <canvas height="230" #doughnutCanvas2EM ></canvas>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+             </ion-card-content>
+            </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+            <ion-card-header>MM/Xfer HealthCheck: MM2GP</ion-card-header>
+            <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                      <canvas height="230" #doughnutCanvasMM ></canvas>
+                </ion-col>
+                <ion-col col-6>
+                     <canvas height="230" #doughnutCanvas2MM ></canvas>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+             </ion-card-content>
+            </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+            <ion-card-header>MM/Xfer HealthCheck: PM2GP</ion-card-header>
+            <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                      <canvas height="230" #doughnutCanvasPM ></canvas>
+                </ion-col>
+                <ion-col col-6>
+                     <canvas height="230" #doughnutCanvas2PM ></canvas>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+             </ion-card-content>
+            </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+            <ion-card-header>MM/Xfer HealthCheck: DM2GP</ion-card-header>
+            <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                      <canvas height="230" #doughnutCanvasDM ></canvas>
+                </ion-col>
+                <ion-col col-6>
+                     <canvas height="230" #doughnutCanvas2DM ></canvas>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+             </ion-card-content>
+            </ion-card>
+    </ion-slide>
+    </ion-slides>
+
+    <ion-card hidden>
+      <ion-card-header>
+          Agile to Glovia Health Check
+      </ion-card-header>
+      <ion-card-content>
+        <canvas height="225" #barCanvasAgileToGlovia></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+          RELIEF Health Check
+      </ion-card-header>
+      <ion-card-content>
+        <canvas height="350" #barCanvasRelief></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+          RELIEF GP Extract Health Check
+      </ion-card-header>
+      <ion-card-content>
+        <canvas height="225" #barCanvasGPExtract></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card> -->
+    
+</ion-content>

@@ -1,0 +1,39 @@
+page-home {
+
+}
+
+.success_card{
+	height: 5px;
+	background-color: color($colors,green);
+}
+
+.error_card{
+	height: 5px;
+	background-color: color($colors,danger);
+}
+
+.success_card_text{
+	padding-top: 5px;
+	 font-size: 1.25em;
+   	 color: #6C7A89;
+}
+
+.error_messages{
+	 font-size: 1.0em;
+   	 color: color($colors,grey);
+}
+
+.error_card_text{
+	padding-top: 5px;
+	font-size: 1.25em;
+   	color: #6C7A89;
+}
+
+.pos_date{
+	float:right;
+}
+
+.primary_text{
+	   	 font-color: color($colors,primary);
+
+}

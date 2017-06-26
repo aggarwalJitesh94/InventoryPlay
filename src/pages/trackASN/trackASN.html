@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar color=primary padding-top padding-bottom>
+    <ion-title>ASN Dashboard Lite</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon *ngIf="screenSelect==='ASNStatistics'" (click)="refresh()" name="ios-refresh"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-segment  [(ngModel)]="screenSelect" padding-top>
+    <ion-segment-button (click)="try_statistics()" value="ASNStatistics">
+      ASN Statistics 
+    </ion-segment-button>
+    <ion-segment-button (click)="try_track_ASN()" value="TrackASN">
+      Track an ASN
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngIf="screenSelect==='ASNStatistics'">
+      <ion-card-header>
+          Error Statistics over Regions
+      </ion-card-header>
+      <ion-card-content>
+        <canvas height="220" #polarCanvasErrors></canvas>
+      </ion-card-content>
+    </ion-card>
+
+	<ion-card *ngIf="screenSelect==='ASNStatistics'">
+      <ion-card-header>
+          ODM Statistics over Regions
+      </ion-card-header>
+      <ion-card-content>
+			<canvas height="200" #radarCanvasODM></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="screenSelect==='ASNStatistics'">
+      <ion-card-header>
+          3PL Statistics over Regions
+      </ion-card-header>
+      <ion-card-content>
+        <canvas height="200" #radarCanvas3PL></canvas>
+      </ion-card-content>
+    </ion-card>
+
+
+<div *ngIf="screenSelect==='TrackASN'">
+  <ion-list radio-group [(ngModel)]="ASN_Flow">
+  	
+  	<ion-item-group>
+	  <ion-item-divider color="light">SELECT ASN FLOW</ion-item-divider>
+	  <ion-item>
+	    <ion-label>ODM</ion-label>
+	    <ion-radio value="ODM"></ion-radio>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label>3PL</ion-label>
+	    <ion-radio value="3PL"></ion-radio>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label>COA</ion-label>
+	    <ion-radio value="COA"></ion-radio>
+	  </ion-item>
+	</ion-item-group>
+
+	  
+	  <ion-item>
+	    <ion-label floating >ASN Transaction Number</ion-label>
+	    <ion-input type="text" clearInput="true" maxlength="20" minlength="2"  step="1" [(ngModel)]="asn_id" ></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating>Service Tag</ion-label>
+	    <ion-input type="text" clearInput="true" maxlength="20" minlength="5"  step="1" [(ngModel)]="svc_tag" ></ion-input>
+	  </ion-item>
+
+	  <ion-item></ion-item>
+  </ion-list>
+  <button ion-button block (click)="ASNResult()">
+  <ion-label>Search</ion-label>
+  <ion-icon name="search"></ion-icon>
+  </button>
+    <div>
+  	<p>{{resultASN}}</p>
+  </div>
+</div>
+
+</ion-content>

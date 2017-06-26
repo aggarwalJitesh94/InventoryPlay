@@ -1,0 +1,39 @@
+page-home {
+
+}
+
+.status-card{
+background-color: #C5DCFC;
+}
+
+.asn_result{
+    top: -36%;
+    font-size: 2.0em;
+    color: color($colors,primary);
+}
+
+.asn_result_mcid{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: color($colors,grey);
+
+}
+
+.asn_result_statusE{
+    font-size: 1.2em;
+    color: color($colors,danger);
+
+}
+
+.asn_result_statusC{
+    font-size: 1.2em;
+    color: color($colors,green);
+
+}
+
+.asn_result_statusI{
+    font-size: 1.2em;
+    color: color($colors,orange);
+
+}
+

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar color=primary>
+    <ion-title>ASN Result</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <button ion-button block (click)="showASNDetailResult()">
+  <ion-label>Show Detailed Data</ion-label>
+  </button>
+  <ion-content> -->
+<!--   <ion-list>
+    <ion-card *ngFor="let asnR of resultASN">
+    <ion-grid>
+    	<ion-row>
+    	<ion-col col-1 class="status-card"></ion-col>
+    	<ion-col>
+    	<ion-item>
+    		    <h2>{{asnR.tansactionId}}</h2>
+    		    <h3>{{asnR.vendor_Name}}</h3>
+    		    <h4>{{asnR.mcid}}</h4>
+    		    <h6>{{asnR.msg_Type}}</h6>
+    	</ion-item>
+    	<ion-item>
+    		<ion-icon name="done-all" item-start large></ion-icon>
+    		<h2>{{asnR.sender_App_Name}}</h2>
+    		<p>{{asnR.date_Time}}</p>
+  		</ion-item>
+    	<ion-item>
+    		<ion-icon name="done-all" item-start large></ion-icon>
+    		<h2>{{asnR.sender_App_Name}}</h2>
+    		<p>{{asnR.date_Time}}</p>
+  		</ion-item>
+    	<ion-item>
+    		<ion-icon name="done-all" item-start large></ion-icon>
+    		<h2>{{asnR.sender_App_Name}}</h2>
+    		<p>{{asnR.date_Time}}</p>
+  		</ion-item>
+  		</ion-col>
+  		</ion-row>
+  	</ion-grid>
+    </ion-card>
+  </ion-list> -->
+  <ion-list no-lines>
+    <ion-item-group>
+    <ion-item-divider class="asn_result" color="light">{{ASNResult.tansactionId}}</ion-item-divider>
+    </ion-item-group>
+  </ion-list>
+  <ion-list no-lines>
+    <ion-item>
+      <ion-note class="asn_result_mcid"  item-start>
+      {{ASNResult.region}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-note *ngIf="ASNResult.trans_Flag=='E'" class="asn_result_statusE" item-start>
+      ERROR
+      </ion-note>
+      <ion-note *ngIf="ASNResult.trans_Flag=='C'" class="asn_result_statusC" item-start>
+      SUCCESS
+      </ion-note>
+      <ion-note *ngIf="ASNResult.trans_Flag=='I'" class="asn_result_statusI" item-start>
+      IN PROGRESS
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-note item-start>
+      {{ASNResult.asn_Received_On}}
+      </ion-note>
+    </ion-item>
+    </ion-list>
+    <ion-list inset>
+    <ion-item *ngFor="let asnR of resultASN">
+      <ion-icon *ngIf="asnR.msg_Type=='SUCCESS'" name="checkmark-circle-outline" color="green" item-start></ion-icon>
+      <ion-icon *ngIf="asnR.msg_Type=='ERROR'" name="ios-close-circle" color="danger" item-start></ion-icon>
+      {{asnR.sender_App_Name}}
+      <button item-end ion-button clear icon-only (click)="fetch_details(asnR.sender_App_Name)">
+      <ion-icon  name='ios-arrow-forward' color="grey"  is-active="false"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<!-- </ion-content> -->

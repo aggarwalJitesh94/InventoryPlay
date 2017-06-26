@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color=primary padding-top padding-bottom>
+    <ion-title *ngIf="screenSelect==='by_svc_tag'">
+      Service Tag Inquiry
+    </ion-title>
+    <ion-title *ngIf="screenSelect==='by_item_name'">
+      Item Inquiry
+    </ion-title>
+    <ion-title *ngIf="screenSelect==='by_location'">
+      Location Inquiry
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-segment  [(ngModel)]="screenSelect" padding-top>
+    <ion-segment-button (click)="try_svc_tag()" value="by_svc_tag">
+      Service Tag
+    </ion-segment-button>
+    <ion-segment-button (click)="try_item_name()" value="by_item_name">
+      Item 
+    </ion-segment-button>
+    <ion-segment-button (click)="try_location()" value="by_location">
+      Location
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-list> 
+
+      <ion-item class="action-sheets-basic-page" padding-top>
+      <ion-label stacked>Region</ion-label>
+      <ion-input type="text" readonly="true" placeholder="Tap to select a Region" (click)="presentActionSheet()" [(ngModel)]="region" disbaled></ion-input>
+      </ion-item>
+
+
+      <ion-item *ngIf="screenSelect==='by_svc_tag'">
+            <ion-label floating>Service Tag</ion-label>
+            <ion-input clearInput="true" maxlength="8" minlength="7" step="1" type="text" [(ngModel)]="service_tag"></ion-input>
+            <button ion-button round large outline color="primary" (click)="scanBarCode()" item-end icon-only>
+                <ion-icon name="barcode"></ion-icon>
+            </button>            
+      </ion-item>
+
+<!--       <ion-item></ion-item>
+ -->      
+    <ion-item *ngIf="screenSelect==='by_item_name'">
+      <ion-label floating>Item Name</ion-label>
+      <ion-input clearInput="true" maxlength="7" minlength="4"  step="1" type="text" [(ngModel)]="item_name"></ion-input>
+    </ion-item>
+    
+    <ion-item *ngIf="screenSelect==='by_location'">
+      <ion-label floating>Location</ion-label>
+      <ion-input clearInput="true" maxlength="7" minlength="4"  step="1" type="text" [(ngModel)]="location"></ion-input>
+    </ion-item>
+
+    <ion-item></ion-item>  
+  </ion-list>
+
+    <ion-buttons end>
+      <button ion-button block (click)="SVCResult()">
+        <ion-label>Search</ion-label>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+<!-- 
+  <div *ngIf="results">
+    <p>{{service_tag.text}}</p>
+    <p>{{service_tag.format}}</p>
+    <p>{{service_tag.cancelled}}</p>
+  </div> -->
+
+</ion-content>

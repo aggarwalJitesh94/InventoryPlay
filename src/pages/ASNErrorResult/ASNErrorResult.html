@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color=primary>
+    <ion-title>ASN Error Result</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-list>
+  <ion-item *ngFor="let asnR of resultASN">
+    <ion-avatar item-start>
+      <img *ngIf="asnR.record_Status=='OPEN'" src="assets/img/pending.gif">
+      <img *ngIf="asnR.record_Status=='CLOSED'" src="assets/img/closed.gif">
+    </ion-avatar>
+    <h2>{{asnR.service_Tag}}</h2>
+    <h3 class="item-text-wrap">{{asnR.error_Msg}}</h3>
+    <p>{{asnR.date_Time}}</p>
+  </ion-item>
+</ion-list>
+</ion-content>

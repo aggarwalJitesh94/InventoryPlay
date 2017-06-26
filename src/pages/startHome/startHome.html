@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color=primary padding-top padding-bottom>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="refresh()">
+        <ion-icon name="ios-refresh" data-intro='hello step one'></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="page-startHome">
+  <ion-slides zoom="true" pager loop="true" autoplay="10000">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-toolbar>
+        <ion-buttons end>
+          <button disabled ion-button color="primary"></button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img [src]="slide.image" class="slide-image" />
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+    <ion-toolbar>
+        <ion-buttons end>
+          <button disabled ion-button color="primary"></button>
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-card>
+            <ion-card-header>Inventory Heart Beat</ion-card-header>
+            <ion-card-content>
+                <canvas height="270" #lineCanvasInv ></canvas>
+             </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <!-- <ion-slide>
+      <ion-toolbar>
+      </ion-toolbar>
+      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+      <h2 class="slide-title">Ready to Play?</h2>
+      <button ion-button large clear icon-right color="primary">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide> -->
+  </ion-slides>
+</ion-content>

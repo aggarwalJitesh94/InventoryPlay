@@ -1,0 +1,26 @@
+.ios, .md {
+ 
+    page-home {
+ 
+        .scroll-content {
+            background-color: map-get($colors, light);
+        }
+ 
+        ion-card-header {
+            font-weight: bold;
+        }
+ 
+    }
+ 
+}
+
+.ion-slides-hc{
+	white-space: nowrap;
+    height: auto;
+    bottom: padding;
+}
+
+ion-scroll {
+    white-space: nowrap;
+    height: 250px;
+}
